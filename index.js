@@ -4,28 +4,28 @@ const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
 
-renderLeads();
+render(myLeads);
 
 inputBtn.addEventListener("click", function () {
     myLeads.push(inputEl.value)
     inputEl.value = ""
     updateLocalStorage();
-    renderLeads()
+    render(myLeads)
 })
 
 deleteBtn.addEventListener("dblclick", function () {
     localStorage.clear();
     myLeads = [];
-    renderLeads();
+    render(myLeads);
 })
 
-function renderLeads() {
+function render(leads) {
     let listItems = ""
-    for (let i = 0; i < myLeads.length; i++) {
+    for (let i = 0; i < leads.length; i++) {
         listItems += `
             <li>
-                <a target='_blank' href='${myLeads[i]}'>
-                    ${myLeads[i]}
+                <a target='_blank' href='${leads[i]}'>
+                    ${leads[i]}
                 </a>
             </li>
         `

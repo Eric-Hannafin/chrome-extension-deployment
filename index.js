@@ -20,6 +20,7 @@ deleteBtn.addEventListener("dblclick", function () {
     render(myLeads);
 })
 
+// gets the current tab from the browser using the chrome tab api. Permissions set in the manifest.json
 saveBtn.addEventListener("click", function () {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         myLeads.push(tabs[0].url)
